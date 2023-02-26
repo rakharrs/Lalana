@@ -1,10 +1,17 @@
 import Helper
+from rakharrs.com.Lalana import Lalana
 
 
-class Lalandratsy:
+class Lalandratsy(Lalana):
     __kilometer_point1 = 0
     __kilometer_point2 = 0
     __level = 0
+
+    def get_geom_lalandratsy(self, connection):
+        percent1 = Helper.get_kp_percent(self.get_length(), self.get_kp1())
+        percent2 = Helper.get_kp_percent(self.get_length(), self.get_kp2())
+        return Helper.get_subline(connection, self.get_geom(), percent1, percent2)
+
 
     def set_level(self, new_level):
         temp = Helper.validnumber(new_level)
